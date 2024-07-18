@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Login } from "login-component-v2";
+import "login-component-v2/dist/index.css";
 
 function App() {
+  const loginAPI = () => {
+    console.log("Invoke login API here");
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      Learn React
+      <Login
+        buttonLabel="Login Button"
+        emailRegex="[a-zA-Z][a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$"
+        passwordRegex="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+        loginClick={() => loginAPI()}
+        titleColor="#33D4FF"
+        buttonSize="large"
+      />
     </div>
   );
 }
